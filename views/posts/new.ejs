@@ -11,15 +11,44 @@
 <body>
   <form action="/posts" method="post">
     <h3>New Post</h3>
+    <div>
     <label for="title">Title</label>
     <input type="text" id="title" name="title" />
-
-    <label for="limitCount">limit</label>
+    </div>
+    <div>
+    <label for="limitCount">Limit</label>
     <input type="text" id="limitCount" name="limitCount" />
+    </div>
 
-    <label for="dataType">Type</label>
+    <div>
+    <label for="dataType">Data Type</label>
     <input type="text" id="dataType" name="dataType" />
+  </div>
+  <div>
+    <label for="price">Price</label>
+    <input type="text" id="price" name="price" />
+  </div>
 
+  <div>
+    <label for="dataFormat">Data Format</label>
+    <input type="text" id="dataFormat" name="dataFormat" />
+  </div>
+
+  <div>
+    <label for="commercialUse">Commercial Use</label>
+    <input type="checkbox" id="commercialUse" name="commercialUse" />
+  </div>
+
+
+  <div>
+    <label for="resaleUse">Resale Use</label>
+    <input type="checkbox" id="resaleUse" name="resaleUse" />
+  </div>
+
+  <div>
+    <label for="contents">Contents</label>
+    <textarea id="contents" name="contents" row="5"></textarea>
+  </div>
     <button type="submit">Submit</button>
   </form>
 </body>

@@ -8,11 +8,11 @@ var postSchema = mongoose.Schema({
   createdAt:{type:Date, default:Date.now},
   limitCount:{type:Number, required:true, default:10, min:1},
   dataType:{type:String, required:true},
-//   price:{type:Number,required:true, default:0, min:0},
-//   dataFormat:{type:String, required:true}
-//   commercialUse:{type:Boolean}
-//   resaleUse:{type:Boolean},
-//   contents:{type:String},
+  price:{type:Number,required:true, default:0, min:0},
+  dataFormat:{type:String, required:true},
+  commercialUse:{type:Boolean},
+  resaleUse:{type:Boolean},
+  contents:{type:String}
 //   contract:[
 //     {
 //       num:{type:Number},

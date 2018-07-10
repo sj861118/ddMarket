@@ -21,15 +21,27 @@
         <th>Author</th>
       </tr>
     </thead>
+
     <tbody>
-      <tr>
-        <td>1</td>
-        <td>30대 남성 얼굴 데이터</td>
-        <td>1/300</td>
-        <td>Image</td>
-        <td>0.02 ETH</td>
-        <td>TheFaceLab</td>
-      </tr>
+      <% if(posts == null || posts.length ==0){ %>
+        <tr>
+          <td> There is no data to show :( </td>
+        </tr>
+      <% } %>
+
+      <% posts.forEach(function(post, index){ %>
+        <tr>
+          <td><%= posts.length - index %></td>
+          <td>
+             <a href="/posts/<%= post._id %>"><%= post.title %></a>
+          </td>
+          <td><%= post.limitCount %></td>
+          <td><%= post.dataType %></td>
+          <td><%= post.price %> ETH</td>
+          <td>TheFaceLab</td>
+        </tr>
+      <% }) %>
+
     </tbody>
   </table>
 </body>
