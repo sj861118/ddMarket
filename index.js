@@ -1,12 +1,21 @@
 //index.js
+﻿var express = require('express');
+var bodyParser  = require("body-parser");
+var methodOverride = require("method-override");
+var app = express();
 
-﻿var express = require('express'); // 설치한 express module을 불러와서 변수(express)에 담습니다.
-var app = express(); //express를 실행하여 app object를 초기화 합니다.
+var db = require('./lib/SJMongoConn');
+db.connect('mongodb://localhost:27017/ddMarket');
 
-app.get('/',function (req,res) { // '/' 위치에 'get'요청을 받는 경우,
- res.send('Hello World!'); // "Hello World!"를 보냅니다.
-});
+app.set("view engine", "ejs");
+app.use(express.static(__dirname+"/public"));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:true}));
+app.use(methodOverride("_method"));
 
-app.listen(3000, function(){ //3000번 포트를 사용합니다.
- console.log('Server On!'); //서버가 실행되면 콘솔창에 표시될 메세지입니다.
+app.use("/", require("./routes/home"));
+app.use("/posts", require("./routes/posts"));
+
+app.listen(3000, function(){
+ console.log('Server On!');
 });

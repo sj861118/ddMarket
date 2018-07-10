@@ -1,0 +1,25 @@
+<!-- views/posts/new.ejs -->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>ddMarket - new</title>
+
+</head>
+
+<body>
+  <form action="/posts" method="post">
+    <h3>New Post</h3>
+    <label for="title">Title</label>
+    <input type="text" id="title" name="title" />
+
+    <label for="limitCount">limit</label>
+    <input type="text" id="limitCount" name="limitCount" />
+
+    <label for="dataType">Type</label>
+    <input type="text" id="dataType" name="dataType" />
+
+    <button type="submit">Submit</button>
+  </form>
+</body>
