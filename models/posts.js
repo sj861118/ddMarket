@@ -12,18 +12,19 @@ var postSchema = mongoose.Schema({
   dataFormat:{type:String, required:true},
   commercialUse:{type:Boolean},
   resaleUse:{type:Boolean},
-  contents:{type:String}
-//   contract:[
-//     {
-//       num:{type:Number},
-//       filehash:{type:String},
-//       retryCount:{type:Number, default:0},
-//       isSigned:{type:Boolean},
-//       comment:{type:String}
-//     }
-//   ]
-// },{
-//   toObject:{virtuals:true}
+  contents:{type:String},
+  contract:[
+    {
+      num:{type:Number},
+      contractor:{type:String},
+      filehash:{type:String},
+      retryCount:{type:Number, default:0},
+      isSigned:{type:Boolean},
+      comment:{type:String}
+    }
+  ]
+},{
+  toObject:{virtuals:true}
 });
 
 var Post = mongoose.model("posts", postSchema);

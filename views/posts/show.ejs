@@ -1,0 +1,53 @@
+<!-- views/posts/index.ejs -->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>ddMarket</title>
+</head>
+
+<body>
+  <div>
+    <a href="/posts">back</a>
+  </div>
+  <div>
+    ---------------------------------------------------------------------------------------------------</br>
+    <%= post.title %>
+  </div>
+
+  <div>
+    ---------------------------------------------------------------------------------------------------</br>
+    포맷 : <%= post.dataFormat %> | 수량 : <%= post.currentCount %> / <%= post.limitCount %> |
+    작성일 : <%= post.createdAt %></br>
+    상업이용여부 : <%= post.commercialUse %> | 재판매가능여부 : <%= post.resaleUse %>
+  </div>
+
+  <div>
+    ---------------------------------------------------------------------------------------------------</br>
+    Contents </br>
+    <%= post.contents %>
+  </div>
+
+  <div>
+    ---------------------------------------------------------------------------------------------------</br>
+    <form action='/posts/upload/<%=post._id%>' method='post' enctype="multipart/form-data">
+      <input type="file" name="uploadFile">
+      <input type="submit">
+    </form>
+  </div>
+
+  <div>
+    ---------------------------------------------------------------------------------------------------</br>
+    Contract </br>
+  </div>
+
+  <% var n = post.contract.length
+  for(var i = 0; i < n; i ++){ %>
+    <ul>
+      <li><%= post.contract[i] %></li>
+    </ul>
+  <% } %>
+</body>
+
+</html>
