@@ -11,6 +11,7 @@ var upload = multer({dest: 'uploads/'});
 //index
 router.get("/", function(req, res){
   Post.find({})
+  .populate("author")
   .sort("-createdAt")
   .exec(function(err,posts){
     if(err) return res.json(err);
@@ -20,6 +21,7 @@ router.get("/", function(req, res){
 
 //create
 router.post("/", function(req, res){
+  req.body.author = req.user._id
   req.body.resaleUse = checkToBoolean(req.body.resaleUse);
   req.body.commercialUse = checkToBoolean(req.body.commercialUse);
   Post.create(req.body, function(err, post){
@@ -36,8 +38,9 @@ router.get("/new",function(req, res){
 
 // Show
 router.get("/:id", function(req, res){
- Post.findOne({_id:req.params.id}) // 3
- .exec(function(err, post){        // 3
+ Post.findOne({_id:req.params.id})
+ .populate("author")
+ .exec(function(err, post){
   if(err) return res.json(err);
   res.render("posts/show", {post:post});
  });
