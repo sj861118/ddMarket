@@ -42,6 +42,7 @@ router.get("/:id", function(req, res){
  .populate("author")
  .exec(function(err, post){
   if(err) return res.json(err);
+  console.log(post);
   res.render("posts/show", {post:post});
  });
 });

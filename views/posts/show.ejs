@@ -31,23 +31,22 @@
 
   <div>
     ---------------------------------------------------------------------------------------------------</br>
-    <form action='/posts/upload/<%=post._id%>' method='post' enctype="multipart/form-data">
-      <input type="file" name="uploadFile">
-      <input type="submit">
-    </form>
-  </div>
-
-  <div>
-    ---------------------------------------------------------------------------------------------------</br>
+  <% if(isAuthenticated && currentUser.id == post.author.id){ %>
     Contract </br>
-  </div>
+      <% var n = post.contract.length
+      for(var i = 0; i < n; i ++){ %>
+        <ul>
+          <li><%= post.contract[i] %></li>
+        </ul>
+      <% } %>
+    <% } else {%>
+      <form action='/posts/upload/<%=post._id%>' method='post' enctype="multipart/form-data">
+        <input type="file" name="uploadFile">
+        <input type="submit">
+      </form>
+      <% } %>
 
-  <% var n = post.contract.length
-  for(var i = 0; i < n; i ++){ %>
-    <ul>
-      <li><%= post.contract[i] %></li>
-    </ul>
-  <% } %>
+  </div>
 </body>
 
 </html>
