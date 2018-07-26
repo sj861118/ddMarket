@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<title>ddMarket</title>
+	<script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
+	<script>
+	function message($mes) {
+	  document.getElementById('message').innerHTML = $mes;
+	}
+
+	</script>
+	<script type="text/javascript" src="./js/ddMarket.js"></script>
+
+</head>
+
+<body>
+	<h1>DD Market</h1>
+
+	<p class="login">
+    ID :
+    <input type=text" id="address" value="0xfcab109cf8884351f72a185d43e77eaf1ede9287">
+    Pass :
+    <input type="password" id="pass" value="pass0" />
+    <input type="button" value="잔고확인" onClick="refreshBalance();" />
+		<input type="button" value="write" onClick="writePost();" />
+  </p>
+
+	<p id="balance">
+    0
+  </p>
+  <p id="message">
+
+  </p>
+	<script>showLists();</script>
+	<table id='list' border='1'>
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Title</th>
+        <th>Type</th>
+        <th>Price</th>
+        <th>Author</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <!-- <% if(posts == null || posts.length ==0){ %>
+        <tr>
+          <td> There is no data to show :( </td>
+        </tr>
+      <% } %>
+
+      <% posts.forEach(function(post, index){ %>
+        <tr>
+          <td><%= posts.length - index %></td>
+          <td>
+             <a href="/posts/<%= post._id %>"><%= post.title %></a>
+          </td>
+          <td><%= post.limitCount %></td>
+          <td><%= post.dataType %></td>
+          <td><%= post.price %> ETH</td>
+          <td><%= post.author.username %></td>
+        </tr>
+      <% }) %> -->
+
+    </tbody>
+  </table>
+
+
+
+	<p>
+		<ul id="posts">
+		</ul>
+	</p>
+
+	<input type="button" value="write" onClick="write();" />
+
+	<input type="button" value="start" onclick="startMonitor();" />
+	<input type="button" value="stop" onclick="stopWatch();" />
+	<table id="list" border="1">
+		<tr>
+			<th>Block<br />Number</th>
+			<th>TimeStamp</th>
+			<th>BlockHash</th>
+			<th>Nonce</th>
+			<th>Transaction</th>
+		</tr>
+	</table>
+</body>
+
+</html>

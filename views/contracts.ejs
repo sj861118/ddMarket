@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>ddMarket - New Account</title>
+
+</head>
+
+<body>
+  <% if(contracts == null || contracts.length == 0){ %>
+    <div>
+      There is no contract
+    </div>
+  <% } %>
+
+  <ul>
+    <% contracts.forEach(function(contracts){ %>
+      <li>
+        <a href="/contract/<%= contracts.returnValues._contractAddr %>">
+        <%= contracts.returnValues._index %>  /
+        <%= contracts.returnValues._title %>  /
+        <% contracts.returnValues._format %>  /
+        <%= contracts.returnValues._limit %>  /
+        <%= contracts.returnValues._price %>  /
+        <%= contracts.returnValues._contractAddr %>
+        </a>
+      </li>
+    <% }) %>
+  </ul>
+
+</body>
+</html>
